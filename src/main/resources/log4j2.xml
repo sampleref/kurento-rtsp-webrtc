@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="debug" monitorInterval="200">
+    <Appenders>
+        <Console name="console">
+            <!-- Flow tracing is most useful with a pattern that shows location.
+                 Below pattern outputs class, line number and method name. -->
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} %-5level %class{36} %L %M - %msg%xEx%n"/>
+        </Console>
+    </Appenders>
+    <Loggers>
+        <Logger name="*" level="warn">
+            <appender-ref ref="console" level="warn"/>
+        </Logger>
+        <Logger name="org.springframework" level="warn">
+            <appender-ref ref="console" level="warn"/>
+        </Logger>
+        <Logger name="demo.webrtc" level="debug" additivity="false">
+            <appender-ref ref="console" level="debug"/>
+        </Logger>
+        <Root level="debug" additivity="false">
+            <appender-ref ref="console"/>
+        </Root>
+    </Loggers>
+</Configuration>
