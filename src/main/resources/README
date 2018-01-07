@@ -1,2 +1,5 @@
 Copy keystore.jks and log4j2.xml to path: /logconf/
 Set Program arguments: -Dlog4j.configurationFile=/logconf/log4j2.xml -Dlogging.config=/logconf/log4j2.xml
+
+Start docker:
+docker run -p 8888:8888 -d -v /var/log/:/var/log/  -v /mnt/av/:/mnt/av/ --net=host nas2docker/kurento_build
