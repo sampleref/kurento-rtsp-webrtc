@@ -29,16 +29,18 @@ public class StreamPipelineHandler {
             StreamSession streamSession = new StreamSession();
             KurentoClient kurentoClient = Constants.getKurentoClient();
             MediaPipeline pipeline = kurentoClient.createMediaPipeline();
+
             streamSession.setMediaPipeline(pipeline);
             PlayerEndpoint player;
             if ("true".equals(useEncodedMedia)) {
                 player = new PlayerEndpoint.Builder(pipeline, mediaUrl)
-                        .withNetworkCache(Integer.valueOf(networkCache)).useEncodedMedia().build();
+                        .withNetworkCache(Integer.valueOf(networkCache)).useEncodedMedia()
+                        .build();
             } else {
                 player = new PlayerEndpoint.Builder(pipeline, mediaUrl)
                         .withNetworkCache(Integer.valueOf(networkCache)).build();
             }
-
+            
             streamSession.setPlayer(player);
 
             player.addErrorListener(new EventListener<ErrorEvent>() {
@@ -85,9 +87,9 @@ public class StreamPipelineHandler {
                     }
                     recorder.stop();
                     recorder.release();
-                    RecordedFileUtils.removeFileIfInvalidLength(session.getRecordingPath());
-                    String thumbnail = RecordedFileUtils.createThumbnailIfValidRecording(session.getRecordingPath());
-                    log.debug("Thumbnail generated for recording as: " + thumbnail);
+                    //RecordedFileUtils.removeFileIfInvalidLength(session.getRecordingPath());
+                    //String thumbnail = RecordedFileUtils.createThumbnailIfValidRecording(session.getRecordingPath());
+                    //log.debug("Thumbnail generated for recording as: " + thumbnail);
                 }
             });
             recorder.addPausedListener(new EventListener<PausedEvent>() {
@@ -107,8 +109,9 @@ public class StreamPipelineHandler {
 
             streamSession.setRecorderEndpoint(recorder);
             streamSession.setRecordingPath(fullFilePath);
-            player.connect(recorder, MediaType.AUDIO);
-            player.connect(recorder, MediaType.VIDEO);
+            //player.connect(recorder, MediaType.AUDIO);
+            //player.connect(recorder, MediaType.VIDEO);
+            player.connect(recorder);
             recorder.record();
         } catch (Throwable t) {
             log.error(t);

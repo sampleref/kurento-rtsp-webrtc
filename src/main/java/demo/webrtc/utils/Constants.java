@@ -12,9 +12,10 @@ import java.util.Map;
 public class Constants {
 
     private static final Map<String, StreamSession> streamSessionMap = new HashMap<>();
-    private static final KurentoClient KURENTO_CLIENT = KurentoClient.create("ws://127.0.0.1:8888/kurento");
+    private static final KurentoClient KURENTO_CLIENT = KurentoClient.create("ws://10.142.138.165:8888/kurento");
     public static final String DEFUALT_HTTP_PORT = "9876";
     public static final String RTSP_URL = "rtspUrl";
+    public static final String CLIENT_HOST = "clientHost";
     public static final String MISSION_ID_JSONKEY = "missionId";
     public static final String DEVICE_ID_JSONKEY = "deviceId";
     public static final String NETWORK_CACHE = "networkCache";

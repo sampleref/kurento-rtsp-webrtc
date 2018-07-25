@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration status="debug" monitorInterval="200">
+<Configuration status="info" monitorInterval="200">
     <Appenders>
         <Console name="console">
             <!-- Flow tracing is most useful with a pattern that shows location.
@@ -17,7 +17,7 @@
         <Logger name="demo.webrtc" level="debug" additivity="false">
             <appender-ref ref="console" level="debug"/>
         </Logger>
-        <Root level="debug" additivity="false">
+        <Root level="info" additivity="false">
             <appender-ref ref="console"/>
         </Root>
     </Loggers>

@@ -23,6 +23,7 @@ public class Application implements WebSocketConfigurer {
 
     private static final org.apache.logging.log4j.Logger LOG = LogManager.getLogger();
     static final String DEFAULT_APP_SERVER_URL = "https://localhost:8443";
+    static Service service;
 
     @Bean
     public WebrtcChannelHandler handler() {
@@ -41,7 +42,7 @@ public class Application implements WebSocketConfigurer {
     }
 
     public static void main(String[] args) throws Exception {
-        new Service();
+        service = new Service();
         Runtime.getRuntime().addShutdownHook(new Thread() {
             @Override
             public void run() {
@@ -52,6 +53,7 @@ public class Application implements WebSocketConfigurer {
     }
 
     public static void kill() {
+        service.shutdown();
         LOG.error("Stopping the service. JVM is shutting down");
     }
 
