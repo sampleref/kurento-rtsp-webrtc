@@ -3,3 +3,9 @@ Set Program arguments: -Dlog4j.configurationFile=/logconf/log4j2.xml -Dlogging.c
 
 Start docker:
 docker run -p 8888:8888 -d -v /var/log/:/var/log/  -v /mnt/av/:/mnt/av/ --net=host nas2docker/kurento_build
+
+
+# Sample commands:
+gst-launch-1.0.exe -v udpsrc port=52126 caps="application/x-rtp, media=(string)video, clock-rate=(int)90000, encoding-name=(string)H264, payload=(int)96" ! rtph264depay ! decodebin ! videoconvert ! autovideosink
+
+gst-launch-1.0.exe filesrc location=C:\\Users\\videoboy\\Desktop\\play2.sdp ! sdpdemux ! rtph264depay ! decodebin ! autovideosink

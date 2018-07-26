@@ -14,7 +14,7 @@ public class TestClient {
     public static String clientHost = "10.142.149.35";
     public static String deviceId = "HPCAM27682CAM1";
     public static String missionId = "110100101";
-    public static String useEncodedMedia = "false";
+    public static String useEncodedMedia = "true";
     public static String networkCache = "0";
 
     public static void main(String args[]) throws UnirestException {

@@ -1,0 +1,10 @@
+v=0
+o=- 3741574385 3741574385 IN IP4 172.17.0.1
+s=Kurento Media Server
+c=IN IP4 172.17.0.1
+t=0 0
+m=video 31142 RTP/AVP 96
+a=sendonly
+a=rtpmap:96 H264/90000
+a=ssrc:3622571622 cname:user2886077167@host-3994bc7
+

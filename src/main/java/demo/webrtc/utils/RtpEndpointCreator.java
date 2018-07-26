@@ -45,7 +45,7 @@ public class RtpEndpointCreator {
         log.info("#############################################################################################");
 
         //String generatedOffer =  rtpEndpoint.generateOffer();
-        //System.out.println("Generated sdp offer : \n " + generatedOffer);
+        //log.info("Generated sdp offer : \n " + generatedOffer);
 
         String generatedAnswer = rtpEndpoint.processOffer(sdpInfo);
 
